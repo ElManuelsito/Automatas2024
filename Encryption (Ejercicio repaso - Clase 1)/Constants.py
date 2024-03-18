@@ -27,21 +27,3 @@ USER_SET_FOR_NO = {"no", "No", "NO", "nO", "n", "N"}
 SUCCESSFUL_ENCRYPTION = "\nLa cadena ha sido encriptada exitosamente:"
 WARNING_INVALID_YES_OR_NO_CHOICE = " (!) Por favor ingrese sí o no"
 WARNING_INVALID_CHOICE = " (!) Por favor ingrese una opción válida"
-
-# print(MAIN_MENU)
-# print(MAIN_MENU_OPTIONS)
-# print(CONFIRM_CHOICE)
-# print(ENCRYPT_CHAR_BY_N_POSITIONS_DESC)
-# print(CONFIRM_CHOICE_YES_OR_NO)
-
-# for char in SPANISH_ALPHABET_LOWERCASE:
-#     print(ord(char))
-# print("\n\n")
-# for char in SPANISH_ALPHABET_UPPERCASE:
-#     print(ord(char))
-# print("\n\n")
-# for char in SPANISH_ALPHABET_LOWERCASE_TILDE:
-#     print(ord(char))
-# print("\n\n")
-# for char in SPANISH_ALPHABET_UPPERCASE_TILDE:
-#     print(ord(char))
