@@ -17,8 +17,9 @@ class Menu:
             self.wait_seconds(Constants.TIME_BETWEEN_MESSAGES)
             if user_menu_choice == "1":
                 self.show_message(Constants.ENCRYPT_CHAR_BY_N_POSITIONS_DESC)
+                self.show_message(Constants.CONFIRM_CHOICE_YES_OR_NO)
                 while True:
-                    user_encryption_mode_confirmation = self.get_user_choice(Constants.CONFIRM_CHOICE_YES_OR_NO)
+                    user_encryption_mode_confirmation = self.get_user_choice()
                     if user_encryption_mode_confirmation in Constants.USER_SET_FOR_YES:
                         string_to_encrypt = self.get_user_string()
                         positions_to_move = int(self.get_user_choice(Constants.REQUEST_USER_POSITIONS_TO_MOVE))
