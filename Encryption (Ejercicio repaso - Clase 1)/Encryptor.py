@@ -40,10 +40,12 @@ class Encryptor:
 
     def calculate_position_index(self, alphabet, char, positions_to_move):
         self.self_not_used()
-        # Se calcula restándole 27 (una vuelta completa al abecedario) al index total (es decir, el index de la letra
-        # elegida + las posiciones que eligió el usuario) cuantas veces sea necesario sin sobrepasar el index total
-        # (es decir, de x/27 = 2.99, se tomaría el 2 solamente, de lo contrario 27*3 podría dar un número negativo si
-        # el index total fuese a ser 80 por ejemplo)
+        # (1) Se calcula restándole 27 (una vuelta completa al abecedario) al index total (es decir, el index de la
+        # letra elegida + las posiciones que eligió el usuario) cuantas veces sea necesario sin sobrepasar el index
+        # total (es decir, de x/27 = 2.99, se tomaría el 2 solamente, de lo contrario 27*3 podría dar un número negativo
+        # si el index total fuese a ser 80 por ejemplo)
+        #
+        # (2) Todos estos cálculos son innecesarios, un simple mod era suficiente. Ej: 28 % 27
         calculated_position_index = ((alphabet.find(char) + positions_to_move) -
                                      (Constants.SPANISH_ALPHABET_NUMBER_OF_LETTERS *
                                       math.floor(
