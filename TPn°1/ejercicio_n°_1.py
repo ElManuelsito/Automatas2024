@@ -36,4 +36,4 @@ def validate_string(string):
 
 
     
-print(validate_string)("JoseRUT1123123"))
+print(validate_string)("JoseRUT1123123")
