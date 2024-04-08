@@ -18,5 +18,12 @@ def solve(string):
     resultado = eval(formula)
     print("Expresión resuelta:", resultado)
 
+<<<<<<< HEAD
 solve(str(input("Ingrese una ecuación : ")))
 
+=======
+try:
+    solve(str(input("Ingrese una ecuación : ")))
+except ValueError as e:
+    print(e)
+>>>>>>> 0b0d87df03b7f748f0b3c20cbfd377ec240b1260
