@@ -21,20 +21,32 @@ def analizar_archivo(validador):
         else:
             print(f"'{linea.strip()}' no es válido.")
 
+def leer_opciones_desde_archivo(nombre_archivo):
+    with open(nombre_archivo, 'r') as archivo:
+        return [linea.strip() for linea in archivo]
+
 if __name__ == "__main__":
-    opcion = input("Selecciona una opción:\n1. Validar emails\n2. Validar URLs\n3. Validar direcciones IPv4\n")
+    opciones = leer_opciones_desde_archivo('opcion.txt')
 
-    if opcion == "1":
-        print("Ingrese las direcciones de correo electrónico:")
-        analizar_archivo(validar_email)
-    elif opcion == "2":
-        print("Ingrese las URLs:")
-        analizar_archivo(validar_url)
-    elif opcion == "3":
-        print("Ingrese las direcciones IPv4:")
-        analizar_archivo(validar_direccion_ipv4)
+    if len(opciones) < 3:
+        print("El archivo no contiene suficientes líneas.")
     else:
-        print("Opción inválida.")
+        print("Validando correo electrónico:", opciones[0])
+        if validar_email(opciones[0]):
+            print("El correo electrónico es válido.")
+        else:
+            print("El correo electrónico no es válido.")
 
+        print("Validando URL:", opciones[1])
+        if validar_url(opciones[1]):
+            print("La URL es válida.")
+        else:
+            print("La URL no es válida.")
+
+        print("Validando dirección IPv4:", opciones[2])
+        if validar_direccion_ipv4(opciones[2]):
+            print("La dirección IPv4 es válida.")
+        else:
+            print("La dirección IPv4 no es válida.")
 
 
