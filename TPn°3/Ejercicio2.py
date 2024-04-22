@@ -27,27 +27,21 @@ def NFA_aorb_kleene_aorborempty(user_string):
     if user_char_list:
         for i, char in enumerate(user_char_list):
             if (i + 1) >= len(user_char_list):
-                sleep(1.5)
                 if char == "a" or char == "b" or char == " ":
                     if current_state == 0:
                         print_current_state(current_state, epsilon, 5)
-                        sleep(1.5)
                     print_current_state(5, char, 6)
-                    sleep(1.5)
                     return print("\nCadena aceptada\n")
                 else:
-                    sleep(1.5)
                     return print("\nCadena NO aceptada\n")
             else:
                 while True:
-                    sleep(1.5)
                     if current_state == 0 and char == "a":
                         print_current_state(current_state, epsilon)
                         current_state = 1
                         continue
                     elif current_state == 1 and char == "a":
                         print_current_state(current_state, char)
-                        sleep(1.5)
                         print_current_state(current_state + 1, epsilon, 5)
                         current_state = 5
                         break
@@ -61,7 +55,6 @@ def NFA_aorb_kleene_aorborempty(user_string):
                         continue
                     elif current_state == 3 and char == "b":
                         print_current_state(current_state, char)
-                        sleep(1.5)
                         print_current_state(current_state + 1, epsilon, 5)
                         current_state = 5
                         break
@@ -81,9 +74,7 @@ def NFA_aorb_kleene_aorborempty(user_string):
                         return print("\nCadena NO aceptada\n")
     else:
         print_current_state(0, epsilon, 5)
-        sleep(1)
         print_current_state(5, epsilon, 6)
-        sleep(1)
         return print("\nCadena aceptada\n")
     return
 
@@ -102,11 +93,9 @@ def DFA_aorb_kleene_aorborempty(user_string):
     if user_char_list:
         for i, char in enumerate(user_char_list):
             while True:
-                sleep(1.5)
                 if current_state == "A" and char == "a":
                     print_current_state(current_state, char, "B")
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = "B"
@@ -114,7 +103,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                 elif current_state == "A" and char == "b":
                     print_current_state(current_state, char, "C")
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = "C"
@@ -122,7 +110,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                 elif current_state == "B" and char == "a":
                     print_current_state(current_state, char, current_state)
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = current_state
@@ -130,7 +117,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                 elif current_state == "B" and char == "b":
                     print_current_state(current_state, char, "C")
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = "C"
@@ -138,7 +124,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                 elif current_state == "C" and char == "a":
                     print_current_state(current_state, char, "B")
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = "B"
@@ -146,7 +131,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                 elif current_state == "C" and char == "b":
                     print_current_state(current_state, char, current_state)
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = current_state
@@ -154,7 +138,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                 elif char == " ":
                     print_current_state(current_state, epsilon, current_state)
                     if (i + 1) >= len(user_char_list):
-                        sleep(1.5)
                         return print("\nCadena aceptada\n")
                     else:
                         current_state = current_state
@@ -163,7 +146,6 @@ def DFA_aorb_kleene_aorborempty(user_string):
                     return print("\nCadena NO aceptada\n")
     else:
         print_current_state(current_state, epsilon, current_state)
-        sleep(1)
         return print("\nCadena aceptada\n")
     return
 
@@ -172,14 +154,12 @@ def show_FSM_options():
     while True:
         user_fsm_choice = input("Opción: ")
         if user_fsm_choice == "1":
-            sleep(0.7)
             return NFA_aorb_kleene_aorborempty(str(input("\nIngrese una expresión: ")))
         elif user_fsm_choice == "2":
-            sleep(0.7)
             return DFA_aorb_kleene_aorborempty(str(input("\nIngrese una expresión: ")))
         else:
             print(" (!) Opción no valida")
-            sleep(2)
+            sleep(0.6)
             print("\x1b[1A", end="\x1b[2K")
             print("\x1b[1A", end="\x1b[2K")
 
