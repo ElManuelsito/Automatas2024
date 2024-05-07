@@ -1,4 +1,4 @@
-# LIBRERIAS QUE IMPORTAMOS
+# LIBRERIAS QUE IMPORTAMOS (indicarlas y explicar por qué las usamos cuando hagamos la presentación)
 import pathlib
 import csv
 import re
@@ -38,7 +38,7 @@ class SongDto:
     official_video: bool
     stream: float
 
-    def foo_bar():
+    def func_de_ejemplo():
         pass
 # -------------------   -------------------
 
@@ -89,19 +89,6 @@ def parse_csv() -> list:
 
 
 # DEFINICIÓN DE FUNCIONES PARA CADA EJERCICIO DEL TRABAJO
-#
-# ESTO FUE SOLO PARA TESTAR QUE SongDto FUNCIONE, USAR O BORRAR COMO QUIERAN
-# |
-# v
-# -------------------   -------------------
-def show_multiple_songs(songs: list) -> None:
-    print(f'\nCanciones:')
-    for song in songs[:25]:
-        print("\u2022", f'{song.artist} - {song.track} (loudness: {song.loudness}) (is official: {song.official_video})')
-    return
-# -------------------   -------------------
-
-
 
 # PUNTO 1 - Buscar por título o artista: se pedirá al usuario que ingrese texto representando
 #           el título de la canción o artista que desee buscar. Tener en cuenta que la entrada
@@ -153,7 +140,24 @@ def show_artist_album_ammount_songs_per_album_ammount_and_album_duration(songs: 
 # -------------------   -------------------
 
 
+# OTRAS FUNCIONES PARA SIMPLIFICAR LA EJECUCION PRINCIPAL o SIMPLIFICAR OTRAS FUNCIONES (si es q hace falta)
+# -------------------   -------------------
+def otra_func_de_ejemplo1():
+    pass
+
+def otra_func_de_ejemplo2():
+    pass
+
+def show_multiple_songs(songs: list) -> None:
+    #  esta funcion la hice para testear que ande el SongDto y la lista q returna, borrarlo o reusarlo desp como mejor venga
+    print(f'\nCanciones:')
+    for song in songs[:25]:
+        print("\u2022", f'{song.artist} - {song.track} (loudness: {song.loudness}) (is official: {song.official_video})')
+    return
+# -------------------   -------------------
+
+
 # EJECUCIÓN DE MENU Y LLAMADAS (EJECUCIÓN PRINCIPAL)
 if __name__ == '__main__':
     songs = parse_csv()
-    show_multiple_songs(songs)
+    # show_multiple_songs(songs)
