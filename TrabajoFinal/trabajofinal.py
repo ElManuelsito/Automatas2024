@@ -129,13 +129,17 @@ def punto_3():
 #           especificar el nombre, la cantidad de canciones, y la duración total del mismo.
 # -------------------   -------------------
 def show_artist_album_ammount_songs_per_album_ammount_and_album_duration(songs: list, artist: str) -> None:
-    albums = []
-    album_duration = 0
+    albums = {}
     for song in songs:
         if artist.lower() in song.artist.lower():
-            # hay que agregar los albumes en una lista, iterar para encontrar las canciones de cada una, y al final 
-            # sumar todos las duraciones de cada cancion que forme parte de cada album y pasarlo a HH:MM:SS para mostrar el total de duracion de cada album 
-            albums.append(song.album)
+            artist = song.artist
+            if song.album in albums:
+                albums[song.album] = (albums[song.album][0] + 1, albums[song.album][1] + float(song.duration))
+            else:
+                albums[song.album] = (1, float(song.duration))
+    print(f"{artist} tiene {len(albums.keys())} albums:")
+    for album, amount_of_songs_and_duration in albums.items():
+        print("\u2022", f"{album} tiene {amount_of_songs_and_duration[0]} canciones y dura {time.strftime('%H:%M:%S', time.gmtime(amount_of_songs_and_duration[1]/1000))}")
 
 # -------------------   -------------------
 
@@ -160,4 +164,10 @@ def show_multiple_songs(songs: list) -> None:
 # EJECUCIÓN DE MENU Y LLAMADAS (EJECUCIÓN PRINCIPAL)
 if __name__ == '__main__':
     songs = parse_csv()
+    show_artist_album_ammount_songs_per_album_ammount_and_album_duration(songs, input("Ingrese artista: "))
     # show_multiple_songs(songs)
+    # albums = {'Demon Days' : (1, 34922), 'Plastic Beach' : (3, 78333)}
+    # albums['Demon Days'] = (2, albums['Demon Days'][1])
+    # print(albums['Demon Days'][0])
+    # albums = [('Demon Days', 1, 34922), ('Plastic Beach', 3, 78333)]
+    # print(albums[albums.index('Demon Days')][1])
