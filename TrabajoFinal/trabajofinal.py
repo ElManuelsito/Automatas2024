@@ -41,8 +41,6 @@ class SongDto:
     def func_de_ejemplo():
         pass
 # -------------------   -------------------
-
-
 # LECTURA DEL ARCHIVO PARA GUARDAR LOS REGISTROS EN UNA LISTA, CUIDADO AL MODIFICAR ESTO, NO AFECTA EL ARCHIVO PERO PUEDE HACER INUTIL EL CODIGO DE LOS EJERCICIOS MÁS ABAJO
 # -------------------   -------------------
 def parse_csv() -> list:
