@@ -1,12 +1,14 @@
 import pandas as pd, os, time, pathlib, csv, re
-from dataclasses import dataclass
-from tabulate import tabulate
 from point1 import search_song
 # from point2 import search_artist
 # from point3 import add_song
 # from point4 import top_artists
-import data
+import options
 
+os.system('cls')
+print(f"{options.BLUE}Reading File...")
+# Ruta Augusto
+data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
 
 def parse_csv() -> list:
     songs = []
@@ -49,41 +51,40 @@ def parse_csv() -> list:
         print('File not found')
         exit(1)
 
-def menu():
-    while True:
-        print(f"{const.BLUE}")
-        print("Options Menu:")
-        print("1. Search Song")
-        print("2. Search Artist")
-        print("3. Add New Song")
-        print("4. Top 10 artists with most views")
-        print("5. Exit")
-        print(f"{const.RESET}")
+while True:
+    print(f"{options.BLUE}")
+    print("Options Menu:")
+    print("1. Search Song")
+    print("2. Search Artist")
+    print("3. Add New Song")
+    print("4. Top 10 artists with most views")
+    print("5. Exit")
+    print(f"{options.RESET}")
 
-        option = input("Select an option: ")
+    option = input("Select an option: ")
 
-        if option == "1":
-            print(f"{const.GREEN}")
-            search_song(data)
-            print(f"{const.RESET}")
-            time.sleep(3)
-        elif option == "2":
-            print(f"{const.GREEN}")
-            search_artist(data)
-            print(f"{const.RESET}")
-            time.sleep(3)
-        elif option == "3":
-            print(f"{const.GREEN}")
-            add_song(data)
-            print(f"{const.RESET}")
-            time.sleep(3)
-        elif option == "4":
-            print(f"{const.GREEN}")
-            top_artists(data)
-            print(f"{const.RESET}")
-            time.sleep(3)
-        elif option == "5":
-            break
-        else:
-            print("Invalid Option. Try Again")
-            time.sleep(3)
+    if option == "1":
+        print(f"{options.GREEN}")
+        search_song(data)
+        print(f"{options.RESET}")
+        time.sleep(3)
+    elif option == "2":
+        print(f"{options.GREEN}")
+        search_artist(data)
+        print(f"{options.RESET}")
+        time.sleep(3)
+    elif option == "3":
+        print(f"{options.GREEN}")
+        add_song(data)
+        print(f"{options.RESET}")
+        time.sleep(3)
+    elif option == "4":
+        print(f"{options.GREEN}")
+        top_artists(data)
+        print(f"{options.RESET}")
+        time.sleep(3)
+    elif option == "5":
+        break
+    else:
+        print("Invalid Option. Try Again")
+        time.sleep(3)

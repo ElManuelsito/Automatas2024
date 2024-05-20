@@ -1,3 +1,4 @@
+from tabulate import tabulate
 
 def search_song(data):
     search_theme = input("Enter title of the song: ")

@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 GREEN = "\033[92m"
 BLUE = "\033[94m"
 RESET = "\033[0m"
