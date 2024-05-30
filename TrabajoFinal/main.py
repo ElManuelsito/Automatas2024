@@ -1,14 +1,14 @@
 import pandas as pd, os, time, pathlib, csv, re
 from point1 import search_song
-# from point2 import search_artist
-# from point3 import add_song
+from point2 import search_artist
+from point3 import add_song
 from point4 import top_artists
 import options
 
 os.system('cls')
 print(f"{options.BLUE}Reading File...")
 # Ruta Augusto
-# data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
+data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
 
 def parse_csv() -> list:
     songs = []
