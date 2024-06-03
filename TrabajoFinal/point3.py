@@ -1,7 +1,7 @@
-import re
 import pandas as pd
+import re
 
-def add_song(data):
+def add_song(data: pd.DataFrame) -> None:
     title = input("Ingrese el título de la canción: ")
     artist = input("Ingrese el nombre del artista: ")
     album = input("Ingrese el nombre del álbum: ")

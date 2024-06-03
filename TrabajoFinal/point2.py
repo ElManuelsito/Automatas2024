@@ -1,7 +1,7 @@
 import pandas as pd
 from tabulate import tabulate
 
-def search_artist(data):
+def show_top_10_tracks_from_artist(data: pd.DataFrame) -> None:
     search_artist = input("Ingresa el nombre del artista: ")
     result = data[data["Artist"].str.contains(search_artist, case=False, na=False)].copy()
     result = result.sort_values(by="Views", ascending=False)
