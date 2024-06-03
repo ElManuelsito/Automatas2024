@@ -1,8 +1,8 @@
 import pandas as pd, os, time, pathlib
 from point1 import search_song_or_artist
-from point2 import top_10_from_artist
+from point2 import show_top_10_tracks_from_artist
 from point3 import add_song
-from point4 import artist_album_info
+from point4 import show_artist_album_info
 
 # Ruta Augusto
 # data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas nuevo/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
@@ -35,7 +35,7 @@ while True:
         # time.sleep(3)
     elif option == "2":
         print(f"{GREEN}")
-        top_10_from_artist(data)
+        show_top_10_tracks_from_artist(data)
         print(f"{RESET}")
         # time.sleep(3)
     elif option == "3":
@@ -45,7 +45,7 @@ while True:
         # time.sleep(3)
     elif option == "4":
         print(f"{GREEN}")
-        artist_album_info(data)
+        show_artist_album_info(data)
         print(f"{RESET}")
         # time.sleep(3)
     elif option == "5":
