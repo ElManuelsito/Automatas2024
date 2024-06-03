@@ -8,7 +8,7 @@ import options
 os.system('cls')
 print(f"{options.BLUE}Reading File...")
 # Ruta Augusto
-data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
+data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas nuevo/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
 
 def parse_csv() -> list:
     songs = []
