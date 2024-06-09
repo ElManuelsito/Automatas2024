@@ -163,10 +163,13 @@ def show_multiple_songs(songs: list) -> None:
 
 # EJECUCIÓN DE MENU Y LLAMADAS (EJECUCIÓN PRINCIPAL)
 if __name__ == '__main__':
-    # data = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv")
-    last_row = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv").iloc[-1]
-    print(last_row['Index'])
-
+    # last_row = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv").iloc[-1]
+    # print(last_row['Index'])
+    apples = input("ingrese (apples): ")
+    if apples != 'apples' and apples != 'oranges':
+        print("no")
+    else:
+        print("yes")
 
 
 

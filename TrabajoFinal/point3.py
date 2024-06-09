@@ -7,8 +7,8 @@ def add_song(data: pd.DataFrame) -> None:
     artist = input("Ingrese el nombre del artista: ")
     album = input("Ingrese el nombre del álbum: ")
     while True:
-        album_type = input("Ingrese el tipo de álbum (album o single): ")
-        if album_type != 'album' or album_type != 'single':
+        album_type = input("Ingrese el tipo de álbum (album/single): ")
+        if album_type != 'album' and album_type != 'single':
             print("Porfavor elegir solamente 'album' o 'single'.")
             continue
         else:
@@ -54,19 +54,20 @@ def add_song(data: pd.DataFrame) -> None:
                 continue
             else:
                 break
-        if likes > views:
+        if int(likes) > int(views):
             print("No puede haber más likes que views, vuelva a intentarlo.")
             continue
         else:
             break
     new_song = pd.DataFrame({
-        "Index": [pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv").iloc[-1] + 1],
+        "Index": [str(int(pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv").iloc[-1]['Index']) + 1)],
         "Artist": [artist],
         "Url_spotify": [url_spotify],
         "Track": [track],
         "Album": [album],
         "Album_type": [album_type],
         "Uri": [uri],
+        "Danceability": ["0.0"],
         "Energy": ["0.0"],
         "Key": ["0.0"],
         "Loudness": ["0.0"],
@@ -76,19 +77,21 @@ def add_song(data: pd.DataFrame) -> None:
         "Liveness": ["0.0"],
         "Valence": ["0.0"],
         "Tempo": ["0.0"],
-        "Duration_ms": [duration_ms],
+        "Duration_ms": [str(duration_ms)],
         "Url_youtube": [url_youtube],
         "Title": [""],
         "Channel": [""],
-        "Views": [views],
-        "Likes": [likes],
+        "Views": [str(views)],
+        "Likes": [str(likes)],
         "Comments": ["0.0"],
         "Licensed": ["False"],
         "official_video": ["False"],
         "Stream": ["0.0"],
     })
-
-    # data = pd.concat([data, new_song], ignore_index=True)
-    
-    new_song.to_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv", mode='a', index=False)
+    new_song.to_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv", mode='a', index=False, header=False)
     print("Canción agregada exitosamente.")
+
+
+# https://open.spotify.com/artist/3AA28KZvwAUcZuOKwyblJQ
+# spotify:track:0d28khcov6AiegSCpG5TuT
+# https://www.youtube.com/watch?v=HyHNuVaZJ-k
