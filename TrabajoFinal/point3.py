@@ -1,8 +1,9 @@
 import pandas as pd
 import re
 import pathlib
+import os
 
-def add_song(data: pd.DataFrame) -> None:
+def add_song_from_input(data: pd.DataFrame) -> None:
     track = input("Ingrese el título de la canción: ")
     artist = input("Ingrese el nombre del artista: ")
     album = input("Ingrese el nombre del álbum: ")
@@ -95,3 +96,14 @@ def add_song(data: pd.DataFrame) -> None:
 # https://open.spotify.com/artist/3AA28KZvwAUcZuOKwyblJQ
 # spotify:track:0d28khcov6AiegSCpG5TuT
 # https://www.youtube.com/watch?v=HyHNuVaZJ-k
+
+def add_song_from_file(data: pd.DataFrame) -> None:
+    while True:
+        file = input("Ingrese el nombre del archivo (por ejemplo, canciones.csv): ")
+        if not os.path.isfile(f"{pathlib.Path(__file__).parent.absolute()}/{file}"):
+            path = input("No se ha encontrado ese archivo en la ruta actual\nIngrese la ruta de su archivo (por ejemplo, 'C:/Users/Juan/Downloads/'): ")
+            if not os.path.isfile(f"{path}{file}"):
+                print("No se ha encontrado ese archivo o la ruta es incorrecta, vuelva a intentarlo.")
+        break
+    print(file)
+    

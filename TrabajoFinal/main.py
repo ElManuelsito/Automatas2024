@@ -1,11 +1,9 @@
 import pandas as pd, os, time, pathlib
 from point1 import search_song_or_artist
 from point2 import show_top_10_tracks_from_artist
-from point3 import add_song
+from point3 import add_song_from_input, add_song_from_file
 from point4 import show_artist_album_info
 
-# Ruta Augusto
-# data = pd.read_csv("C:/Users/acast/OneDrive/Documents/UM/2024/Automátas y Gramáticas/Automatas nuevo/Automatas2024/TrabajoFinal/spotify_and_youtube 2024.csv")
 
 GREEN = "\033[92m"
 BLUE = "\033[94m"
@@ -14,7 +12,6 @@ RESET = "\033[0m"
 os.system('cls')
 print(f"{BLUE}Reading File...")
 data = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv")
-
 
 while True:
     print(f"{BLUE}")
@@ -40,7 +37,12 @@ while True:
         # time.sleep(3)
     elif option == "3":
         print(f"{GREEN}")
-        add_song(data)
+        print("Elija cómo ingresar una nueva canción:\n1. Por consola\n2. Con un archivo")
+        append_type_option = input("Opción: ")
+        if append_type_option == "1":
+            add_song_from_input(data)
+        elif append_type_option == "2":
+            add_song_from_file(data)
         print(f"{RESET}")
         # time.sleep(3)
     elif option == "4":
