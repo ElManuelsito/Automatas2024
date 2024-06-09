@@ -5,6 +5,8 @@ import re
 import time 
 from dataclasses import dataclass
 
+import pandas as pd
+
 
 # CREACION DE DATACLASS PARA CANCIONES COMO HICIMOS CON MovieDto
 # -------------------   -------------------
@@ -161,8 +163,16 @@ def show_multiple_songs(songs: list) -> None:
 
 # EJECUCIÓN DE MENU Y LLAMADAS (EJECUCIÓN PRINCIPAL)
 if __name__ == '__main__':
-    songs = parse_csv()
-    show_artist_album_ammount_songs_per_album_ammount_and_album_duration(songs, input("Ingrese artista: "))
+    # data = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv")
+    last_row = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv").iloc[-1]
+    print(last_row['Index'])
+
+
+
+
+
+    # songs = parse_csv()
+    # show_artist_album_ammount_songs_per_album_ammount_and_album_duration(songs, input("Ingrese artista: "))
     # show_multiple_songs(songs)
     # albums = {'Demon Days' : (1, 34922), 'Plastic Beach' : (3, 78333)}
     # albums['Demon Days'] = (2, albums['Demon Days'][1])

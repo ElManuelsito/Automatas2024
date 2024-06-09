@@ -52,4 +52,4 @@ while True:
         break
     else:
         print("Opción inválida. Intenta otra vez.")
-        time.sleep(2)
+        time.sleep(1.3)
