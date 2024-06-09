@@ -1,10 +1,12 @@
 import pandas as pd
 import re
+import pathlib
 
 def add_song(data: pd.DataFrame) -> None:
-    title = input("Ingrese el título de la canción: ")
+    track = input("Ingrese el título de la canción: ")
     artist = input("Ingrese el nombre del artista: ")
     album = input("Ingrese el nombre del álbum: ")
+    album_type = input("Ingrese el tipo de álbum (álbum o single): ")
     url_spotify = input("Ingrese la URL de Spotify de la canción: ")
     uri = input("Ingrese el URI de Spotify de la canción: ")
     duration_ms = input("Ingrese la duración en milisegundos: ")
@@ -29,18 +31,34 @@ def add_song(data: pd.DataFrame) -> None:
         return
 
     new_song = pd.DataFrame({
-        "Title": [title],
         "Artist": [artist],
-        "Album": [album],
         "Url_spotify": [url_spotify],
+        "Track": [track],
+        "Album": [album],
+        "Album_type": [album_type],
         "Uri": [uri],
-        "Duration_ms": [int(duration_ms)],
+        "Energy": ["0.0"],
+        "Key": ["0.0"],
+        "Loudness": ["0.0"],
+        "Speechiness": ["0.0"],
+        "Acousticness": ["0.0"],
+        "Instrumentalness": ["0.0"],
+        "Liveness": ["0.0"],
+        "Valence": ["0.0"],
+        "Tempo": ["0.0"],
+        "Duration_ms": [duration_ms],
         "Url_youtube": [url_youtube],
-        "Likes": [likes],
+        "Title": [""],
+        "Channel": [""],
         "Views": [views],
+        "Likes": [likes],
+        "Comments": ["0.0"],
+        "Licensed": ["None"],
+        "official_video": ["None"],
+        "Stream": ["0.0"],
     })
 
     data = pd.concat([data, new_song], ignore_index=True)
     
-    data.to_csv("spotify_and_youtube_2024.csv", index=False)
+    data.to_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube_2024.csv", index=False)
     print("Canción agregada exitosamente.")
