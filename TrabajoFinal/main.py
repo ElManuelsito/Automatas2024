@@ -40,7 +40,7 @@ while True:
         print("Elija cómo ingresar una nueva canción:\n1. Por consola\n2. Con un archivo")
         append_type_option = input("Opción: ")
         if append_type_option == "1":
-            add_song_from_input(data)
+            add_song_from_input()
         elif append_type_option == "2":
             add_song_from_file(data)
         print(f"{RESET}")

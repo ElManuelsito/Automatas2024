@@ -165,10 +165,72 @@ def show_multiple_songs(songs: list) -> None:
 if __name__ == '__main__':
     # last_row = pd.read_csv(f"{pathlib.Path(__file__).parent.absolute()}/spotify_and_youtube 2024.csv").iloc[-1]
     # print(last_row['Index'])
-    a = "so"
-    b = "based"
-    print(f"{a}{b}")
 
+    dati = {'Name':['jai','cole','cole','cole','cole'],
+            'Age':['20','5','-5','a','5']}
+    datipd = pd.DataFrame(dati)
+    # print(datipd)
+    # copydt = pd.DataFrame(columns=datipd.columns)
+    # print(datipd)
+    # print("|||||||||||||||||||||||||||||||||||")
+    # print(copydt)
+    # print("------------------")
+    # print(datipd.iloc[[2]])
+    # copydt = pd.concat([copydt, datipd.iloc[[2]]]) !!!!!!!
+    # print(copydt)
+    # copydt.reset_index(inplace=True, drop=True)
+    # print(copydt)
+    # time.sleep(199)
+    if not 'Index' in datipd.columns:
+        print("Ok, adding.")
+        datipd.insert(0,"Index", None, False)
+    filtered_datipd = pd.DataFrame(columns=datipd.columns)
+    prev_index = 27918
+    for i, row in datipd.iterrows():
+        # print(i)
+        # print("-------------")
+        # print(row)
+        if not re.match(r"^\d+$", datipd.loc[i, 'Age']):
+            continue
+        if i == 0:
+            datipd.at[0, 'Index'] = prev_index + 1
+            valid_values_present = True
+            current_index = prev_index + 1
+        elif datipd.loc[i, 'Index'] == None and datipd.loc[i - 1, 'Index'] == None and not valid_values_present:
+            datipd.at[i, 'Index'] = prev_index + 1
+            valid_values_present = True
+            current_index = prev_index + 1
+        elif datipd.loc[i, 'Index'] == None and datipd.loc[i - 1, 'Index'] == None and valid_values_present:
+            datipd.at[i, 'Index'] = current_index + 1
+        else:
+            datipd.at[i, 'Index'] = datipd.loc[i - 1, 'Index'] + 1
+            current_index = datipd.loc[i - 1, 'Index'] + 1
+        filtered_datipd = pd.concat([filtered_datipd, datipd.iloc[[i]]])
+    filtered_datipd.reset_index(inplace=True, drop=True)
+    print(datipd)
+    print("-------------------")
+    print(filtered_datipd)
+
+    datee = {'Index':['jai','cole','cole','cole','cole'],
+            'Name':['jai','cole','cole','cole','cole'],
+            'Mar':['20','5','-5','a','5'],
+            'Age':['20','5','-5','a','5'],
+            'koolio':['20','5','-5','a','5'],
+            'OHGOD':['20','5','-5','a','5'],
+            'helpus':['20','5','-5','a','5']}
+    dateepd = pd.DataFrame(datee)
+    for i, column_to_add in enumerate(dateepd.columns.tolist()):
+        try:
+            if not column_to_add == filtered_datipd.columns[i]:
+                filtered_datipd.insert(i, column_to_add, None, False)
+        except IndexError:
+            filtered_datipd[column_to_add] = None
+        
+    print(filtered_datipd)
+    filtered_datipd=filtered_datipd.fillna({'Name': 'John', 'Mar': 'Ojojoj', 'koolio': 'BEEF', 'OHGOD': 'so over...'})
+    print(filtered_datipd)
+    # filtered_datipd = filtered_datipd.reindex(columns=dateepd.columns.tolist(), fill_value=None)
+    # print(filtered_datipd)
 
 
 
